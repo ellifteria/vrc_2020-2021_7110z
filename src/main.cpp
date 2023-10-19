@@ -168,14 +168,250 @@ void runAuton(int auton) //Runs autonomous prgram stored in Settings and selecte
 
 
 void pre_auton( void ) {
-  vexcodeInit();
+  // Create GUI
+  Brain.Screen.printAt(30, 120, ((std::string)"[+] Preparing UI").c_str());
+  
+  
+  // AUTON DECLARATION
+  Settings.addAuton(3121, "3121; Skills");
+  
+  // SCREEN DECLARATION
+  ZUI_Screen myScreen = ZUI_Screen();
+
+  // GRID CAPTIONS DECLARATION
+  ZUI_Text r1 = ZUI_Text("1", 130, 50);
+  ZUI_Text r2 = ZUI_Text("2", 130, 80);
+  ZUI_Text r3 = ZUI_Text("3", 130, 110);
+  ZUI_Text r4 = ZUI_Text("4", 130, 140);
+  ZUI_Text r5 = ZUI_Text("5", 130, 170);
+  ZUI_Text r6 = ZUI_Text("6", 130, 200);
+
+  // SELECTION SCREEN TILES DECLARATION
+  ZUI_GameTile gt121 = ZUI_GameTile(90, 30, 30, 30, "grey");
+  ZUI_GameTile gt122 = ZUI_GameTile(90, 60, 30, 30, "grey");
+  ZUI_GameTile gt123 = ZUI_GameTile(90, 90, 30, 30, "grey");
+  ZUI_GameTile gt124 = ZUI_GameTile(90, 120, 30, 30, "grey");
+  ZUI_GameTile gt125 = ZUI_GameTile(90, 150, 30, 30, "grey");
+  ZUI_GameTile gt126 = ZUI_GameTile(90, 180, 30, 30, "grey");
+
+  // ALLIANCE SELECTION SCREEN TILES DECLARATION
+  ZUI_GameTile gt0231 = ZUI_GameTile(120, 30, 30, 30, "grey");
+  ZUI_GameTile gt0221 = ZUI_GameTile(150, 30, 30, 30, "grey");
+  ZUI_GameTile gt0211 = ZUI_GameTile(180, 30, 30, 30, "grey");
+  ZUI_GameTile gt0232 = ZUI_GameTile(120, 60, 30, 30, "grey");
+  ZUI_GameTile gt0222 = ZUI_GameTile(150, 60, 30, 30, "grey");
+  ZUI_GameTile gt0212 = ZUI_GameTile(180, 60, 30, 30, "grey");
+  ZUI_GameTile gt0233 = ZUI_GameTile(120, 90, 30, 30, "grey");
+  ZUI_GameTile gt0223 = ZUI_GameTile(150, 90, 30, 30, "grey");
+  ZUI_GameTile gt0213 = ZUI_GameTile(180, 90, 30, 30, "grey");
+  ZUI_GameTile gt0234 = ZUI_GameTile(120, 120, 30, 30, "grey");
+  ZUI_GameTile gt0224 = ZUI_GameTile(150, 120, 30, 30, "grey");
+  ZUI_GameTile gt0214 = ZUI_GameTile(180, 120, 30, 30, "grey");
+  ZUI_GameTile gt0235 = ZUI_GameTile(120, 150, 30, 30, "grey");
+  ZUI_GameTile gt0225 = ZUI_GameTile(150, 150, 30, 30, "grey");
+  ZUI_GameTile gt0215 = ZUI_GameTile(180, 150, 30, 30, "grey");
+  ZUI_GameTile gt0236 = ZUI_GameTile(120, 180, 30, 30, "grey");
+  ZUI_GameTile gt0226 = ZUI_GameTile(150, 180, 30, 30, "grey");
+  ZUI_GameTile gt0216 = ZUI_GameTile(180, 180, 30, 30, "grey");
+  ZUI_GameTile gt0111 = ZUI_GameTile(30, 30, 30, 30, "grey");
+  ZUI_GameTile gt0121 = ZUI_GameTile(60, 30, 30, 30, "grey");
+  ZUI_GameTile gt0131 = ZUI_GameTile(90, 30, 30, 30, "grey");
+  ZUI_GameTile gt0112 = ZUI_GameTile(30, 60, 30, 30, "grey");
+  ZUI_GameTile gt0122 = ZUI_GameTile(60, 60, 30, 30, "grey");
+  ZUI_GameTile gt0132 = ZUI_GameTile(90, 60, 30, 30, "grey");
+  ZUI_GameTile gt0113 = ZUI_GameTile(30, 90, 30, 30, "grey");
+  ZUI_GameTile gt0123 = ZUI_GameTile(60, 90, 30, 30, "grey");
+  ZUI_GameTile gt0133 = ZUI_GameTile(90, 90, 30, 30, "grey");
+  ZUI_GameTile gt0114 = ZUI_GameTile(30, 120, 30, 30, "grey");
+  ZUI_GameTile gt0124 = ZUI_GameTile(60, 120, 30, 30, "grey");
+  ZUI_GameTile gt0134 = ZUI_GameTile(90, 120, 30, 30, "grey");
+  ZUI_GameTile gt0115 = ZUI_GameTile(30, 150, 30, 30, "grey");
+  ZUI_GameTile gt0125 = ZUI_GameTile(60, 150, 30, 30, "grey");
+  ZUI_GameTile gt0135 = ZUI_GameTile(90, 150, 30, 30, "grey");
+  ZUI_GameTile gt0116 = ZUI_GameTile(30, 180, 30, 30, "grey");
+  ZUI_GameTile gt0126 = ZUI_GameTile(60, 180, 30, 30, "grey");
+  ZUI_GameTile gt0136 = ZUI_GameTile(90, 180, 30, 30, "grey");
+
+ // SELECTED BLUE SELECTION SCREEN TILES DECLARATION
+  ZUI_GameTile gt21s = ZUI_GameTile(90, 30, 30, 30, "blue");
+  ZUI_GameTile gt22s = ZUI_GameTile(90, 60, 30, 30, "blue");
+  ZUI_GameTile gt23s = ZUI_GameTile(90, 90, 30, 30, "blue");
+  ZUI_GameTile gt24s = ZUI_GameTile(90, 120, 30, 30, "blue");
+  ZUI_GameTile gt25s = ZUI_GameTile(90, 150, 30, 30, "blue");
+  ZUI_GameTile gt26s = ZUI_GameTile(90, 180, 30, 30, "blue");
+
+ // SELECTED RED SELECTION SCREEN TILES DECLARATION
+  ZUI_GameTile gt11s = ZUI_GameTile(90, 30, 30, 30, "red");
+  ZUI_GameTile gt12s = ZUI_GameTile(90, 60, 30, 30, "red");
+  ZUI_GameTile gt13s = ZUI_GameTile(90, 90, 30, 30, "red");
+  ZUI_GameTile gt14s = ZUI_GameTile(90, 120, 30, 30, "red");
+  ZUI_GameTile gt15s = ZUI_GameTile(90, 150, 30, 30, "red");
+  ZUI_GameTile gt16s = ZUI_GameTile(90, 180, 30, 30, "red");
+
+  // SELECTED GREEN SELECTION SCREEN TILES DECLARATION
+  ZUI_GameTile gt311s = ZUI_GameTile(90, 30, 30, 30, "green");
+  ZUI_GameTile gt312s = ZUI_GameTile(90, 60, 30, 30, "green");
+  ZUI_GameTile gt313s = ZUI_GameTile(90, 90, 30, 30, "green");
+  ZUI_GameTile gt314s = ZUI_GameTile(90, 120, 30, 30, "green");
+  ZUI_GameTile gt315s = ZUI_GameTile(90, 150, 30, 30, "green");
+  ZUI_GameTile gt316s = ZUI_GameTile(90, 180, 30, 30, "green");
+
+  // PAGES DECLARATION
+  ZUI_Page p0 = ZUI_Page();
+  ZUI_Page p1 = ZUI_Page();
+  ZUI_Page p2 = ZUI_Page();
+  ZUI_Page p3121 = ZUI_Page();
+
+  
+  // BUTTON DECLARATIONS
+  ZUI_Button backp0 = ZUI_Button(420, 30, 30, 30, greyColor, "<", "page=0");
+  ZUI_Button backp1 = ZUI_Button(420, 30, 30, 30, greyColor, "<", "page=1");
+  ZUI_Button backp2 = ZUI_Button(420, 30, 30, 30, greyColor, "<", "page=2");
+
+  // PAGE: p0 - Alliance Selection Screen
+
+  // p0: Title
+  ZUI_Text p0title = ZUI_Text("Choose alliance", 270, 60);
+  p0.add(p0title);
+
+  // p0: Tiles
+  p0.add(gt0111);
+  p0.add(gt0121);
+  p0.add(gt0131);
+  p0.add(gt0112);
+  p0.add(gt0122);
+  p0.add(gt0132);
+  p0.add(gt0113);
+  p0.add(gt0123);
+  p0.add(gt0133);
+  p0.add(gt0114);
+  p0.add(gt0124);
+  p0.add(gt0134);
+  p0.add(gt0115);
+  p0.add(gt0125);
+  p0.add(gt0135);
+  p0.add(gt0116);
+  p0.add(gt0126);
+  p0.add(gt0136);
+  p0.add(gt0211);
+  p0.add(gt0221);
+  p0.add(gt0231);
+  p0.add(gt0212);
+  p0.add(gt0222);
+  p0.add(gt0232);
+  p0.add(gt0213);
+  p0.add(gt0223);
+  p0.add(gt0233);
+  p0.add(gt0214);
+  p0.add(gt0224);
+  p0.add(gt0234);
+  p0.add(gt0215);
+  p0.add(gt0225);
+  p0.add(gt0235);
+  p0.add(gt0216);
+  p0.add(gt0226);
+  p0.add(gt0236);
+  
+  // p0: Buttons
+  p0.add(ZUI_Button(285, 75, 60, 30, redColor, "1", "page=1"));
+  p0.add(ZUI_Button(375, 75, 60, 30, blueColor, "2", "page=2"));
+  p0.add(ZUI_Button(330, 125, 60, 30, greenColor, "3", "page=3121"));
+  
+  // PAGE: p1 - Red Alliance Screen
+
+  // p1: Title
+  ZUI_Text p1title = ZUI_Text("Choose auton", 270, 60);
+  p1.add(p1title);
+
+  // p1: Tiles
+  p1.add(gt121);
+  p1.add(gt122);
+  p1.add(gt123);
+  p1.add(gt124);
+  p1.add(gt125);
+  p1.add(gt126);
+
+  // p1: Grid
+  p1.add(r1);
+  p1.add(r2);
+  p1.add(r3);
+  p1.add(r4);
+  p1.add(r5);
+  p1.add(r6);
+
+  // p1: Buttons
+  p1.add(backp0);
+
+  // PAGE: p2 - Blue Alliance Screen
+
+  // p2: Title
+  ZUI_Text p2title = ZUI_Text("Choose auton", 270, 60);
+  p2.add(p2title);
+
+  // p2: Tiles
+  p2.add(gt121);
+  p2.add(gt122);
+  p2.add(gt123);
+  p2.add(gt124);
+  p2.add(gt125);
+  p2.add(gt126);
+
+  //p2: Grid
+  p2.add(r1);
+  p2.add(r2);
+  p2.add(r3);
+  p2.add(r4);
+  p2.add(r5);
+  p2.add(r6);
+
+  // p2: Buttons
+  p2.add(backp0);
+
+  // PAGE: p3121 - Skills Selection Screen
+
+  // p3121: Title
+  ZUI_Text p121title = ZUI_Text("Auton " + Settings.parseAuton(3121, 0), 270, 60);
+  p3121.add(p121title);
+  ZUI_Text p121text = ZUI_Text(Settings.parseAuton(3121, 1), 270, 90);
+  p3121.add(p121text);
+
+  // p3121: Tiles
+  p3121.add(gt121);
+  p3121.add(gt312s);
+  p3121.add(gt123);
+  p3121.add(gt124);
+  p3121.add(gt125);
+  p3121.add(gt126);
+
+  // p3121: Grid
+  p3121.add(r1);
+  p3121.add(r2);
+  p3121.add(r3);
+  p3121.add(r4);
+  p3121.add(r5);
+  p3121.add(r6);
+
+  // p3121: Buttons
+  p3121.add(ZUI_Button(285, 180, 90, 30, greenColor, "Confirm", "auton=3121;finalpage=true"));
+  p3121.add(backp0);
+
+
+  // ADD PAGES TO SCREEN
+  myScreen.addPage(0, p0);
+  myScreen.addPage(1, p1);
+  myScreen.addPage(2, p2);
+  myScreen.addPage(3121, p3121);
+
+  // RUN UI
+  Brain.Screen.printAt(30, 150, ((std::string)"[+] Running UI").c_str());
+  myScreen.handleUI();
 }
 
 
 void autonomous( void ) {
   releaseFlap();
 
-  //Calibrate Gyroscope
+  // Calibrate Gyroscope
   Inert.startCalibration();
   Brain.Screen.clearScreen();
   while(Inert.isCalibrating())
@@ -186,8 +422,8 @@ void autonomous( void ) {
   Brain.Screen.clearScreen();
   Brain.Screen.printAt(30, 60, ((std::string)"[+] Gyroscope Calibrated").c_str());
 
-  //Run autonomous program
-  runAuton(Settings.getAuton());
+  // Run autonomous program
+  runAuton();
 }
 
 void usercontrol( void ) {
